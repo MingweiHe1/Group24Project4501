@@ -1,7 +1,7 @@
 
 
 
-WITH RankedRents AS (
+WITH Rent AS (
     SELECT 
         zipcode, 
         AVG(rent) AS avg_rent,
@@ -14,7 +14,7 @@ WITH RankedRents AS (
     GROUP BY 
         zipcode
 ),
-TreeCounts AS (
+Tree AS (
     SELECT 
         zipcode, 
         COUNT(*) AS tree_count
@@ -23,7 +23,7 @@ TreeCounts AS (
     GROUP BY 
         zipcode
 ),
-ComplaintCounts AS (
+Complaint AS (
     SELECT 
         incident_zip, 
         COUNT(*) AS complaint_count
@@ -38,11 +38,11 @@ SELECT
     t.tree_count,
     c.complaint_count
 FROM 
-    RankedRents r
+    Rent r
 LEFT JOIN 
-    TreeCounts t ON r.zipcode = t.zipcode::bigint
+    Tree t ON r.zipcode = t.zipcode::bigint
 LEFT JOIN 
-    ComplaintCounts c ON r.zipcode = c.incident_zip::bigint
+    Complaint c ON r.zipcode = c.incident_zip::bigint
 WHERE 
     r.rent_rank_asc <= 5 OR r.rent_rank_desc <= 5
 ORDER BY 
