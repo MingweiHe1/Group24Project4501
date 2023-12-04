@@ -1,1 +1,36 @@
+Installed packages
+pip install geopandas
+pip install geoalchemy2
+pip install pyproj
+pip install psycopg2
+pip install folium
+pip install geoplot
+pip install geodatasets
+pip install psycopg2-binary
 
+Existing packages in Anaconda Installation
+import math
+from datetime import datetime, timedelta
+from datetime import date
+import numpy as np
+import json
+import pathlib
+import urllib.parse
+import seaborn as sns
+import pandas as pd
+import requests
+import shapely
+import sqlalchemy as db
+import os
+from shapely.geometry import Point
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Float, TIMESTAMP, Date, text
+import re
+import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
+from pathlib import PosixPath
+from shapely.ops import transform
+from shapely.geometry import Point
+from shapely.wkb import dumps
+from pathlib import Path
+import contextily as cx
